@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thế Giới Riêng ❤️</title>
+    <link rel="shortcut icon" href="/assets/images/sc.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+
+    <!-- Login Screen -->
+    <section id="login-screen" class="glass-panel">
+        <div class="login-container">
+            <div class="glow-orb"></div>
+            <h1 class="title">Bí Mật Của Chúng Ta</h1>
+            <p class="subtitle">Nhập mật khẩu để mở khóa</p>
+            <div class="input-group">
+                <i class="ph ph-lock-key"></i>
+                <input type="password" id="password-input" placeholder="Mật khẩu..." autocomplete="off">
+            </div>
+            <p id="error-message" class="error-text"></p>
+            <button id="unlock-btn" class="glow-btn">
+                <span>Mở Khóa</span>
+                <i class="ph ph-arrow-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Main Dashboard -->
+    <section id="main-dashboard" class="hidden">
+
+        <!-- Header / Center Counter -->
+        <div class="center-content glass-panel">
+            <h2 class="love-title">Chúng ta đã quen nhau được</h2>
+            <div class="counter" id="love-counter">
+                <div class="time-block"><span id="days">0</span><label>Ngày</label></div>
+                <div class="time-block"><span id="hours">0</span><label>Giờ</label></div>
+                <div class="time-block"><span id="minutes">0</span><label>Phút</label></div>
+                <div class="time-block"><span id="seconds">0</span><label>Giây</label></div>
+            </div>
+            <div class="realtime-clock" id="clock-display">00:00:00</div>
+            <div class="quote-box">
+                <p id="love-quote" class="typing-text"></p>
+            </div>
+        </div>
+
+        <div class="cards-container">
+            <!-- Boy Card -->
+            <div class="profile-card boy-card">
+                <div class="card-inner">
+                    <div class="avatar-container">
+                        <!-- User mentioned they will add boy avatar later. Fallback to API -->
+                        <img src="assets/images/hth.jpg" alt="Hoàng Trung Hiếu" class="avatar"
+                            onerror="this.src='https://ui-avatars.com/api/?name=Hoàng+Trung+Hiếu&background=random&color=fff&size=200'">
+                        <img src="assets/images/khung.png" class="avatar-frame" alt="Khung Nam">
+                        <div class="online-indicator"></div>
+                    </div>
+                    <h3 class="name">Hoàng Trung Hiếu</h3>
+                    <p class="status">Đang nhớ bạnnn... ❤️</p>
+
+                    <div class="affection-bar">
+                        <div class="bar-fill" style="width: 100%"></div>
+                        <span class="bar-text">Độ simp: 999%</span>
+                    </div>
+
+                    <button id="call-boy-btn" class="glow-btn primary-btn">
+                        <i class="ph-fill ph-paper-plane-tilt"></i>
+                        <span>Gọi ❤️</span>
+                    </button>
+
+                    <button id="open-letter-btn" class="glow-btn primary-btn secondary-btn">
+                        <i class="ph-fill ph-envelope-open"></i>
+                        <span>Lời Nhắn 💌</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Girl Card -->
+            <div class="profile-card girl-card">
+                <div class="card-inner">
+                    <div class="avatar-container">
+                        <img src="assets/images/phhong.png" alt="Lục Thị Phượng Hồng" class="avatar"
+                            onerror="this.src='https://ui-avatars.com/api/?name=Lục+Thị+Phượng+Hồng&background=random&color=fff&size=200'">
+                        <img src="assets/images/meo.png" class="avatar-frame" alt="Khung Nữ">
+                        <div class="online-indicator"></div>
+                    </div>
+                    <h3 class="name">Lục Thị Phượng Hồng</h3>
+                    <p class="status">Công chúa nhỏ ✨</p>
+
+                    <div class="affection-bar">
+                        <div class="bar-fill pink-fill" style="width: 100%"></div>
+                        <span class="bar-text">Độ đáng yêu: 1000%</span>
+                    </div>
+
+                    <button id="search-girl-btn" class="glow-btn primary-btn">
+                        <i class="ph-bold ph-magnifying-glass"></i>
+                        <span>Tìm Kiếm 🔍</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <i class="ph ph-check-circle" id="toast-icon"></i>
+        <span id="toast-message">Đã gửi tin nhắn cho anh ấy!</span>
+    </div>
+
+    <!-- Letter Modal -->
+    <div id="letter-modal" class="modal-overlay hidden">
+        <div class="letter-container glass-panel">
+            <button id="close-letter-btn" class="close-btn"><i class="ph ph-x"></i></button>
+            <div class="letter-content">
+                <h3 class="letter-greeting">Gửi Công Chúa Của Mình,</h3>
+                <div class="letter-body">
+                    <p id="secret-message" class="letter-text"></p>
+                </div>
+                <p class="letter-signature">Yêu bạn,<br>Hiếu ❤️</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

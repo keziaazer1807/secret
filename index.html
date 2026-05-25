@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thế Giới Riêng ❤️</title>
-    <link rel="shortcut icon" href="assets/images/sc.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/images/sc.jpg" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,10 +49,27 @@
                 <div class="time-block"><span id="minutes">0</span><label>Phút</label></div>
                 <div class="time-block"><span id="seconds">0</span><label>Giây</label></div>
             </div>
+
+            <!-- New Section: Chúng ta đã yêu nhau được -->
+            <div class="love-anniversary-section">
+                <h2 class="love-title love-anniversary-title">CHÚNG TA ĐÃ YÊU NHAU ĐƯỢC</h2>
+                <div class="counter love-counter-display" id="love-anniversary-counter">
+                    <div class="time-block love-time-block"><span id="love-days">0</span><label>Ngày</label></div>
+                    <div class="time-block love-time-block"><span id="love-hours">0</span><label>Giờ</label></div>
+                    <div class="time-block love-time-block"><span id="love-minutes">0</span><label>Phút</label></div>
+                    <div class="time-block love-time-block"><span id="love-seconds">0</span><label>Giây</label></div>
+                </div>
+                <p class="love-subtitle-text">Mỗi ngày bên nhau đều là món quà đẹp nhất 💜</p>
+            </div>
+
             <div class="realtime-clock" id="clock-display">00:00:00</div>
             <div class="quote-box">
                 <p id="love-quote" class="typing-text"></p>
             </div>
+            <button id="journal-btn" class="glow-btn primary-btn journal-btn">
+                <i class="ph-fill ph-notebook"></i>
+                <span>Nhật Ký Chung 📖</span>
+            </button>
         </div>
 
         <div class="cards-container">
@@ -128,6 +145,28 @@
                     <p id="secret-message" class="letter-text"></p>
                 </div>
                 <p class="letter-signature">Yêu bạn,<br>Hiếu ❤️</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Journal Modal -->
+    <div id="journal-modal" class="modal-overlay hidden">
+        <div class="journal-container glass-panel">
+            <button id="close-journal-btn" class="close-btn"><i class="ph ph-x"></i></button>
+            <div class="journal-content">
+                <h3 class="journal-header">Nhật Ký Chung</h3>
+                <div class="journal-entry-form">
+                    <div class="author-toggle">
+                        <button class="author-btn active" data-author="boy">Hiếu ❤️</button>
+                        <button class="author-btn" data-author="girl">Phượng Hồng ✨</button>
+                    </div>
+                    <textarea id="journal-textarea" placeholder="Hôm nay có chuyện gì muốn kể..." rows="3"></textarea>
+                    <button id="submit-journal-btn" class="glow-btn">
+                        <span>Gửi</span>
+                        <i class="ph ph-paper-plane-right"></i>
+                    </button>
+                </div>
+                <div class="journal-timeline" id="journal-timeline"></div>
             </div>
         </div>
     </div>
